@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="ventanita"></p>
+
+    <script>
+        //Objeto Javascript
+        let hospital = {
+            nombre: "La raza",
+            direccion: "Lazaro cardenas 22",
+            especialidades: ["Orthopedia", "Pediatria", "Ginecologia"]
+        };
+
+        let hospital2 = {
+            nombre: "Clinica 28",
+            direccion: "Lazaro cardenas 25",
+            especialidades: ["Cardiologia", "Pediatria", "Oncologia", "Medico General"]
+        };
+
+        let arreglo = hospital.especialidades;
+        let arreglo2 = hospital2.especialidades;
+        let arrayArreglo = [];
+
+        try {
+            for (let i = 0; i < arreglo2.length; i++) {
+                let resultadoBusqueda = arreglo.indexOf(arreglo2[i])
+                if (resultadoBusqueda === -1) {
+                    /// ... esta concatenando el arreglo
+                    arreglo = [...arreglo, arreglo2[i]];
+                }
+            }
+
+        } catch (error) {
+            console.log(error);
+        }
+
+        arrayArreglo = [...arreglo, ...arreglo2];
+
+        let ul = document.createElement("ol");
+        let li = document.createElement("li");
+        let contenido = "";
+        for (let i = 0; i < arreglo.length; i++) {
+            contenido += "<li>" + arreglo[i] + "</li>";
+        }
+
+        //li.innerText = hospital.nombre;
+        ul.innerHTML = contenido;
+        document.body.append(ul);
+        //document.getElementById("ventanita").innerHTML = contenido;
+    </script>
+</body>
+
+</html>
