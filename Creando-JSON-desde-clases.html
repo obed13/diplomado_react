@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Computadora {
+
+            constructor(marca, micro, ram) {
+                this.marca = marca;
+                this.micro = micro;
+                this.ram = ram;
+                this.discos = [];
+            }
+
+            dameDetalles() {
+                return "Marca: " + this.marca + " Procesador: " + this.micro;
+            }
+
+            dameTotalEnDisco() {
+                let total = 0;
+                for (let i = 0; i < this.discos.length; i++) {
+                    total += this.discos[i];
+
+                }
+                return total;
+            }
+
+            agregarDisco(gigas) {
+                this.discos.push(gigas);
+            }
+
+        }
+
+        class Disco {
+
+            constructor(marca, totalGigas) {
+                this.marca = marca;
+                this.totalGigas = totalGigas;
+            }
+        }
+
+        // Creando una Instancia
+        let instancia = new Computadora("Razer", "i9", 128);
+
+
+
+        //divisor.innerText = instancia.dameDetalles();
+        //document.body.appendChild(divisor);
+        console.log(JSON.stringify(instancia));
+    </script>
+</body>
+
+</html>
